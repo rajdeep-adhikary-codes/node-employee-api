@@ -42,6 +42,38 @@ app.get('/employees/get', function(req, res){
     })
 })
 
+app.put('/employees/add', function(req, res){
+    var data = req.body;
+    var errors = checkInputs(data);
+    if(errors.length == 0){
+        let query = "INSERT INTO employee(name) VALUES('" + data.name + "'); INSERT INTO employee_details(salary, position, department) VALUES('" + data.salary + "', '" + data.position + "', '" + data.department + "');";
+        con.query(query, function(error, results, fields){
+            if(error) throw error;
+            return res.send('Employee record has been saved');
+        })
+    }
+    else{
+        return res.status(400).send(errors.join("\r\n"));
+    }
+})
+
+function checkInputs(data) {
+    let error = [];
+    if(!data.name){
+        error.push('Please enter employee name');
+    }
+    if(!data.salary){
+        error.push('Please enter employee salary');
+    }
+    if(!data.position){
+        error.push('Please enter employee position');
+    }
+    if(!data.department){
+        error.push('Please enter employee department');
+    }
+    return error;
+}
+
 // set port
 app.listen(3000, function () {
     console.log('Node app is running on port 3000');
