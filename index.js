@@ -30,6 +30,18 @@ app.get('/employees/get/all', function(req, res){
     })
 })
 
+app.get('/employees/get', function(req, res){
+    let user_id = req.body.user_id;
+    if(!user_id){
+        return res.status(400).send('Please provide user id');
+    }
+    let query = "SELECT * FROM `employee` INNER JOIN employee_details ON employee.id = employee_details.id WHERE employee.id = " + user_id;
+    con.query(query, function(error, results, fields){
+        if(error) throw error;
+        return res.send(results);
+    })
+})
+
 // set port
 app.listen(3000, function () {
     console.log('Node app is running on port 3000');
