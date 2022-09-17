@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/rajdeep-adhikary-codes/node-employee-api/issues"
   },
-  "homepage": "https://github.com/rajdeep-adhikary-codes/node-employee-api#readme"
+  "homepage": "https://github.com/rajdeep-adhikary-codes/node-employee-api#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1"
+  }
 }
