@@ -1,0 +1,19 @@
+{
+  "name": "node-employee-api",
+  "version": "1.0.0",
+  "description": "practicing api creation with node",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajdeep-adhikary-codes/node-employee-api.git"
+  },
+  "author": "Rajdeep Adhikary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajdeep-adhikary-codes/node-employee-api/issues"
+  },
+  "homepage": "https://github.com/rajdeep-adhikary-codes/node-employee-api#readme"
+}
