@@ -49,8 +49,11 @@ app.put('/employees/add', function(req, res){
         let query = "INSERT INTO employee(name) VALUES('" + data.name + "');";
         con.query(query, function(error, results, fields){
             if(error) throw error;
+            let query2 = "INSERT INTO employee_details(emp_id, salary, position, department) VALUES('" + results.insertId + "', '" + data.salary + "', '" + data.position + "', '" + data.department + "');";
+            con.query(query2);
             return res.send('Employee record has been saved');
         })
+        
     }
     else{
         return res.status(400).send(errors.join("\r\n"));
